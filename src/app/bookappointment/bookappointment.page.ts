@@ -376,7 +376,7 @@ export class BookappointmentPage implements OnInit {
     this.disableBookButton = true;
     this.disableBookButton = false;
     if (this.ValidateAppointment()) {
-      const param = { data: this.appointment };
+      const param = { data: this.appointment, merchantService: this.merchantStoreService };
       this.router.navigateByUrl('/paymentmode', { state: param });
     }
     else {

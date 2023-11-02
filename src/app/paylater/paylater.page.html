@@ -1,15 +1,33 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
+  <ion-toolbar color="primary"  style="text-align: center;">
+    <!-- <ion-buttons slot="start">
       <ion-button (click)="goBack('/home')">
         <ion-icon class="back-btn-size" name="arrow-back"></ion-icon>
       </ion-button>
-    </ion-buttons>
+    </ion-buttons> -->
     <ion-title>Booking Successful</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen class="animate__animated animate__fadeIn">
+  <div class="confetti">
+    <!-- <div class="confetti"> -->
+
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+
+  </div>
   <div class="card-bg"></div>
   <ion-card>
     <ion-card-header>
@@ -29,9 +47,9 @@
         <ion-label>{{appoinmentDetails.bookingDateString}}</ion-label>
       </ion-item>
       <ion-item lines="none" class="ion-text-center pay-mode">
-        <ion-label
-          >Payment mode : <span class="bold">Pay Later</span></ion-label
-        >
+        <ion-label *ngIf="paymentStatus==2">Payment mode : <span class="bold">Pay Later</span></ion-label>
+        <ion-label *ngIf="paymentStatus==1">Payment mode : <span class="bold">Card</span></ion-label>
+
       </ion-item>
       <ion-item lines="none" class="ion-text-center">
         <ion-label
@@ -43,7 +61,7 @@
         >
       </ion-item>
     </ion-card-content>
-    <ion-item class="ion-text-center" detail="true" (click)="goBack('/home/tabs/tab3')">
+    <ion-item class="ion-text-center" detail="true" (click)="goBack('/home/tabs/tab3')" style="z-index: 90000;">
       <ion-button fill="clear" 
     
         >View booking status</ion-button
@@ -53,7 +71,7 @@
       lines="none"
       class="ion-text-center"
       detail="true"
-      (click)="goBack('/home')"
+      (click)="goBack('/home')" style="z-index: 90000;"
     >
       <ion-button fill="clear">Back to home</ion-button>
     </ion-item>

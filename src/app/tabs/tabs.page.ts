@@ -25,7 +25,7 @@ export class TabsPage implements OnInit {
     shouldPauseOnSuspend : 'no', //Android only 
     closebuttoncaption : 'Back', //iOS only
     disallowoverscroll : 'no', //iOS only 
-    toolbar : 'no', //iOS only 
+    toolbar : 'yes', //iOS only 
     enableViewportScale : 'yes', //iOS only 
     allowInlineMediaPlayback : 'no',//iOS only 
     // presentationstyle : 'pagesheet',//iOS only 

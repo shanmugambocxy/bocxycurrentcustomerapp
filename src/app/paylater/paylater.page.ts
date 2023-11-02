@@ -21,7 +21,7 @@ export class PaylaterPage implements OnInit {
   appoinmentDetails: AppointmentDetails;
   days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
+paymentStatus:any;
   constructor(
     private location: Location,
     public route: ActivatedRoute,
@@ -34,6 +34,13 @@ export class PaylaterPage implements OnInit {
   ) { }
 
   async ngOnInit() {
+    let getPaymentStatus = localStorage.getItem('paymentStatus');
+    if (getPaymentStatus) {
+      this.paymentStatus = JSON.parse(getPaymentStatus);
+    } else {
+      this.paymentStatus = 2;
+
+    }
     this.appoinmentDetails = new AppointmentDetails();
     this.paramSubscription = this.route.params.subscribe(
       async (params: Params) => {

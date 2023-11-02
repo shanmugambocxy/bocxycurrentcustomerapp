@@ -25,6 +25,7 @@ export class FormenPage implements OnInit {
   totalPages: number;
   totalCount: number;
   allServices: any = [];
+  getAllServices: any = [];
   skipLogin: boolean;
   selectLocation: boolean;
   parentPage: string;
@@ -104,6 +105,7 @@ export class FormenPage implements OnInit {
         loading.then(l => l.dismiss());
         if (response && response.status === 'SUCCESS') {
           this.allServices.push(...response.data);
+          this.getAllServices=this.allServices;
           this.totalPages = response.totalPages;
           this.totalCount = response.totalCount;
         }
@@ -262,6 +264,16 @@ export class FormenPage implements OnInit {
     }
     else {
       this.nav.GoBackTo('/home/tabs/tab1');
+    }
+  }
+
+  filterservice(ev: any) {
+    this.allServices = this.getAllServices;
+    const val = ev.target.value;
+    if (val && val.trim() !== '') {
+      this.allServices = this.allServices.filter((ser) => {
+        return (ser.serviceName.toLowerCase().indexOf(val.toLowerCase()) > -1 || ser.storeName.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      });
     }
   }
 
